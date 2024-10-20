@@ -20,7 +20,7 @@ public class GameController {
     }
 
     public void makeMove(){
-
+        gameService.makeMove();
     }
 
     public GameState getGameState(){
