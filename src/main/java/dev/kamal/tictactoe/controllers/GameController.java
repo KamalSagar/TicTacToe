@@ -1,8 +1,21 @@
 package dev.kamal.tictactoe.controllers;
 
-public class GameController {
+import dev.kamal.tictactoe.models.GameState;
+import dev.kamal.tictactoe.models.Player;
+import dev.kamal.tictactoe.services.GameService;
+import dev.kamal.tictactoe.services.strategies.winningStrategy.WinningStrategy;
 
-    public void startGame(){
+import java.util.List;
+
+public class GameController {
+    private GameService gameService;
+
+    public GameController(){
+        this.gameService = new GameService();
+    }
+
+    public void startGame(List<Player> players, List<WinningStrategy> winningStrategies){
+        gameService.startGame(players, winningStrategies);
 
     }
 
@@ -10,12 +23,16 @@ public class GameController {
 
     }
 
-    public void getGameState(){
-
+    public GameState getGameState(){
+        return gameService.getGameState();
     }
 
-    public void getWinner(){
+    public Player getWinner(){
+        return gameService.getWinner();
+    }
 
+    public void printBoard(){
+        gameService.printBoard();
     }
 
 
